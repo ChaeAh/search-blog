@@ -1,4 +1,4 @@
-package com.blog.kakao.config;
+package kakao.config;
 
 import io.netty.channel.ChannelOption;
 import io.netty.handler.timeout.ReadTimeoutHandler;
@@ -22,7 +22,7 @@ public class WebClientConfig {
 
     /* webclient 생성 */
     @Bean
-    public WebClient createWebClient() {
+    public WebClient webClient() {
         HttpClient client = HttpClient.create()
                 .option(ChannelOption.CONNECT_TIMEOUT_MILLIS, 30000)
                 .doOnConnected(conn -> conn.

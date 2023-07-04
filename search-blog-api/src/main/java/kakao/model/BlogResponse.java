@@ -1,6 +1,7 @@
-package com.blog.kakao.model;
+package kakao.model;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 /**
@@ -9,18 +10,21 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class BlogResponse {
 
     private Meta meta;
     private Documents[] documents;
 
-    class Meta {
+    @Getter @Setter
+    public static class Meta {
         private int total_count;
         private int pageable_count;
         private boolean is_end;
     }
 
-    class Documents {
+    @Getter @Setter
+    public static class Documents {
         private String title;
         private String contents;
         private String url;

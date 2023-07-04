@@ -1,0 +1,4 @@
+rootProject.name = 'log'
+include 'search-blog-api'
+include 'search-blog-data'
+

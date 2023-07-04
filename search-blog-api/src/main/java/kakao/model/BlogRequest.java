@@ -1,4 +1,4 @@
-package com.blog.kakao.model;
+package kakao.model;
 
 import lombok.Getter;
 import lombok.Setter;
