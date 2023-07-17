@@ -3,3 +3,7 @@ server:
 spring:
   application:
     name: webclient
+  elasticsearch:
+    cluster-name: chae-cluster
+    host: 127.0.0.1
+    port: 9200
