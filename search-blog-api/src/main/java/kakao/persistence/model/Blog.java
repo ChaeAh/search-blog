@@ -1,10 +1,7 @@
 package kakao.persistence.model;
 
-import kakao.persistence.common.BaseTimeEntity;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import kakao.persistence.common.BaseEntity;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,23 +12,26 @@ import javax.persistence.Table;
  */
 
 @Entity
-@Data
+@Getter
+@Setter
 @Builder
-@NoArgsConstructor @AllArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "tbl_blog")
-public class Blog extends BaseTimeEntity {
-
-    @Column(name="TITLE")
+public class Blog extends BaseEntity {
+    @Column(name = "TRANSACTION_ID")
+    private String transactionId;
+    @Column(name = "TITLE")
     private String title;
-    @Column(name="CONTENTS")
+    @Column(name = "CONTENTS")
     private String contents;
-    @Column(name="URL")
+    @Column(name = "URL")
     private String url;
-    @Column(name="BLOG_NM")
+    @Column(name = "BLOG_NM")
     private String blogName;
-    @Column(name="THUMBNAIL")
+    @Column(name = "THUMBNAIL")
     private String thumbnail;
-    @Column(name="DATETIME")
+    @Column(name = "DATETIME")
     private String datetime;
 
 }

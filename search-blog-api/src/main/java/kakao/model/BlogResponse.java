@@ -17,6 +17,7 @@ public class BlogResponse {
 
     private Meta meta;
     private Documents[] documents;
+    private String transactionId;
 
 }
 

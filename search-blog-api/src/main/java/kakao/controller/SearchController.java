@@ -28,17 +28,26 @@ public class SearchController {
     public BlogResponse commonBlogSearch(@RequestBody BlogRequest request) {
         log.info(LOG_PREFIX + " START");
 
+        blogSearchService.saveBlogSearchHistory(request);
+
         MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         queryParams.add("query", request.getQuery());
         queryParams.add("sort", request.getSortType().toLowerCase());
         queryParams.add("page", String.valueOf(request.getPage()));
         queryParams.add("size", String.valueOf(request.getSize()));
 
-        BlogResponse blogResponse =client.callKakaoBlogApi(HttpMethod.GET, queryParams, BlogResponse.class).block();
+        BlogResponse response = client.callKakaoBlogApi(HttpMethod.GET, queryParams, BlogResponse.class).block();
+        response.setTransactionId(request.getTransactionId());
 
-        blogSearchService.saveBlogSearchHistory(blogResponse);
+        blogSearchService.saveBlogSearch(response);
 
-        return blogResponse;
+        return response;
+    }
+
+    @GetMapping("/popular")
+    public BlogResponse popularBlogList() {
+
+        return null;
     }
 
 }
